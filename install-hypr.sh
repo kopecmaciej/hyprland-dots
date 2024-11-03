@@ -5,29 +5,45 @@ chmod +x ~/.config/hypr/scripts/install-hypr.sh
 
 # Install necessary packages
 sudo pacman -S --needed \
+    # base
     hyprland \
     waybar \
     rofi-wayland \
     wezterm \
-    dunst \
-    pipewire \ 
-    wireplumber \
-    hyprpaper \
-    polkit-kde-agent \
-    xdg-desktop-portal-hyprland \
     dolphin \
-    brightnessctl \
-    playerctl \
-    pamixer
+    xdg-desktop-portal-hyprland \
+    # audio
+    pipewire \ 
+    pipewire-pulse \
+    pipewire-audio \
+    wireplumber \
+    pavucontrol \
+    # fonts 
+    ttf-jetbrains-mono-nerd \
+    noto-fonts \
+    noto-fonts-emoji \
+    # utils 
+    wl-clipboard
+    # dunst \
+    # hyprpaper \
+    # polkit-kde-agent \
+    # brightnessctl \
+    # playerctl \
+    # pamixer
 
 # Create necessary directories
-mkdir -p ~/.config/{hypr,waybar,rofi,wezterm}
+mkdir -p ~/.config/{waybar,rofi,wezterm}
 
 # Copy config files
-cp /etc/xdg/waybar/config ~/.config/waybar/
-cp /etc/xdg/waybar/style.css ~/.config/waybar/
+cp ./waybar/config ~/.config/waybar/
+cp ./waybar/style.css ~/.config/waybar/
+cp ./rofi/config.rasi ~/.config/rofi/
+cp ./wezterm/wezterm.lua ~/.config/wezterm/
 
 ## additionals 
 
 sudo pacman -S \
-  lazygit
+  lazygit \
+  rsync \
+  syncthing
+
