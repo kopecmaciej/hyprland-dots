@@ -13,6 +13,7 @@ sudo pacman -S --needed \
     dolphin \
     xdg-desktop-portal-hyprland \
     sddm \
+    swaync \
     # audio
     pipewire \ 
     pipewire-pulse \
@@ -49,6 +50,7 @@ sudo pacman -S \
   lazygit \
   rsync \
   syncthing \ 
+  starship \
   pyenv 
  
 yay -S \
