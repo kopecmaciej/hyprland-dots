@@ -1,17 +1,101 @@
 configuration {
-    modi: "run,drun,window";
-    icon-theme: "Papirus";
+    modi: "run,drun,window,filebrowser";
+    icon-theme: "Papirus-Dark";
     show-icons: true;
     terminal: "wezterm";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: " 﩯  Window";
+    display-drun: "󰣆  Apps";
+    display-run: "󰝋  Run";
+    display-window: " 﩯 Window";
     display-Network: " 󰤨  Network";
+    display-filebrowser: "󰉋  Files";
     sidebar-mode: true;
+
+    kb-mode-complete: "";
+
+    kb-mode-next: "Control+l";
+    kb-mode-previous: "Control+h";
+    kb-remove-char-back: "BackSpace";
+    kb-accept-entry: "Return,Control+o";
+    kb-row-down: "Down,Control+j";
+    kb-row-up: "Up,Control+k";
+    kb-remove-to-eol: "Control+Shift+e";
+    kb-remove-to-sol: "Control+Shift+u";
+}
+
+window {
+    transparency: "real";
+    background-color: #1e1e2e;
+    text-color: #cdd6f4;
+    border: #89b4fa;
+    border-radius: 8px;
+    width: 45%;
+    padding: 8px;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: #313244;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 4px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: #89b4fa;
+    padding: 0px 8px 0px 0px;
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: #585b70;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+listview {
+    background-color: transparent;
+    margin: 8px 0 0 0;
+    lines: 10;
+    columns: 1;
+    fixed-height: false;
+}
+
+element {
+    padding: 8px;
+    spacing: 8px;
+    border-radius: 6px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: #cdd6f4;
+}
+
+element selected.normal {
+    background-color: #45475a;
+    text-color: #89b4fa;
+}
+
+element-icon {
+    size: 24px;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
 }
 
 @theme "catppuccin-mocha"
