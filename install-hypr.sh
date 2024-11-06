@@ -26,9 +26,6 @@ sudo pacman -S --needed \
     noto-fonts-emoji \
     # utils 
     wl-clipboard
-    ## sddm theme
-    qt6-svg
-    # dunst \
     # hyprpaper \
     # polkit-kde-agent \
     # brightnessctl \
@@ -51,6 +48,8 @@ sudo pacman -S \
   rsync \
   syncthing \ 
   starship \
+  yarn \
+  ripgrep \
   pyenv 
  
 yay -S \

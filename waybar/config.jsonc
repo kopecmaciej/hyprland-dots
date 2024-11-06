@@ -3,24 +3,52 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+    "reload_style_on_change": true,
+    "modules-center": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": [],
+    "modules-right": ["custom/gpu_mem", "custom/gpu_temp", "cpu", "memory","pulseaudio", "network", "battery", "tray", "clock"],
     
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "1 ",
-            "2": "2 ",
-            "3": "3 ",
-            "4": "4 ",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
             "urgent": "",
             "focused": "",
             "default": ""
         }
     },
+
+    "hyprland/window": {
+      "max-length": 30,
+      "min-length": 30,
+      "icon": true
+    },
+
+    "custom/gpu_mem": {
+      "exec": "nvidia-smi --query-gpu=memory.used --format=csv,noheader",
+      "format": " {}",
+      "return-type": "",
+      "interval": 5
+    },
+
+    "custom/gpu_temp": {
+      "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
+      "format": "{}°C ",
+      "critical-threshold": 80,
+      "return-type": "",
+      "interval": 5
+    },
+
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M}"
