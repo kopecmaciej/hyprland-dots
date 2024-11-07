@@ -44,6 +44,7 @@ cp ./wezterm/wezterm.lua ~/.config/wezterm/
 ## additionals 
 
 sudo pacman -S \
+  wlogout \
   lazygit \
   rsync \
   syncthing \ 

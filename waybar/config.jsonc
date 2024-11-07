@@ -6,7 +6,7 @@
     "reload_style_on_change": true,
     "modules-center": ["hyprland/workspaces", "hyprland/window"],
     "modules-left": [],
-    "modules-right": ["custom/gpu_mem", "custom/gpu_temp", "cpu", "memory","pulseaudio", "network", "battery", "tray", "clock"],
+    "modules-right": ["custom/gpu_mem", "custom/gpu_temp", "cpu", "memory","pulseaudio", "network", "battery", "tray", "clock", "custom/power"],
     
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -54,7 +54,7 @@
         "format": "{:%H:%M}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
@@ -70,9 +70,15 @@
         "format-plugged": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
     },
+    "custom/power": {
+      "format": " ",
+      "tooltip": false,
+      "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+      "on-click-right": "~/.config/hypr/scripts/glassmorphism"
+    },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
