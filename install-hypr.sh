@@ -12,8 +12,12 @@ sudo pacman -S --needed \
     wezterm \
     dolphin \
     xdg-desktop-portal-hyprland \
+    ## login manager
     sddm \
+    ## notifications
     swaync \
+    ## wallpaper
+    swww \
     # audio
     pipewire \ 
     pipewire-pulse \
@@ -26,7 +30,6 @@ sudo pacman -S --needed \
     noto-fonts-emoji \
     # utils 
     wl-clipboard
-    # hyprpaper \
     # polkit-kde-agent \
     # brightnessctl \
     # playerctl \
@@ -66,5 +69,3 @@ sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
 
 echo "[Theme]
 Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
-
-

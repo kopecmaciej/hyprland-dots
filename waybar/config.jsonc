@@ -6,7 +6,7 @@
     "reload_style_on_change": true,
     "modules-center": ["hyprland/workspaces", "hyprland/window"],
     "modules-left": [],
-    "modules-right": ["custom/gpu_mem", "custom/gpu_temp", "cpu", "memory","pulseaudio", "network", "battery", "tray", "clock", "custom/power"],
+    "modules-right": ["custom/gpu_mem", "custom/gpu_temp", "cpu", "memory", "pulseaudio", "network", "battery", "tray", "clock", "custom/power"],
     
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -34,15 +34,22 @@
       "icon": true
     },
 
+    "custom/power": {
+      "format": " ",
+      "tooltip": false,
+      "on-click": "poweroff",
+      "on-click-right": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown"
+    },
+
     "custom/gpu_mem": {
-      "exec": "nvidia-smi --query-gpu=memory.used --format=csv,noheader",
+      "exec": "echo 50",
       "format": " {}",
       "return-type": "",
       "interval": 5
     },
 
     "custom/gpu_temp": {
-      "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
+      "exec": "echo 50",
       "format": "{}°C ",
       "critical-threshold": 80,
       "return-type": "",
@@ -53,13 +60,16 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M}"
     },
+
     "cpu": {
         "format": " {usage}%",
         "tooltip": false
     },
+
     "memory": {
         "format": "{}% "
     },
+
     "battery": {
         "states": {
             "warning": 30,
@@ -70,12 +80,7 @@
         "format-plugged": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
     },
-    "custom/power": {
-      "format": " ",
-      "tooltip": false,
-      "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-      "on-click-right": "~/.config/hypr/scripts/glassmorphism"
-    },
+
     "network": {
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ipaddr}/{cidr} ",
@@ -84,6 +89,7 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -102,8 +108,9 @@
         },
         "on-click-right": "pavucontrol"
     },
+
     "tray": {
         "icon-size": 21,
-        "spacing": 10
+        "spacing": 30
     }
 }
