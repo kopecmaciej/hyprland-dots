@@ -13,26 +13,13 @@ window#waybar {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes gradient_f {
-  0% {
-    background-position: 0% 200%;
-  }
-
-  50% {
-    background-position: 200% 0%;
-  }
-
-  100% {
-    background-position: 400% 200%;
-  }
-}
-
 window#waybar.hidden {
   opacity: 0.2;
 }
 
 #window {
   background: transparent;
+  color: #fff;
 }
 
 #workspaces {
@@ -60,14 +47,19 @@ window#waybar.hidden {
   box-shadow: inset 0 -3px #ff6666;
 }
 
+#disk,
+#memory,
+#cpu,
+#language {
+  margin: 2px;
+}
 
 #custom-power,
-#custom-gpu_mem,
 #custom-gpu_temp,
+#custom-gpu_mem,
 #clock,
 #battery,
-#cpu,
-#memory,
+#hardware,
 #network,
 #pulseaudio,
 #tray {
@@ -78,7 +70,6 @@ window#waybar.hidden {
   border: 1px solid rgba(100, 100, 100, 0.2);
   border-radius: 8px;
   transition: all 0.3s ease;
-  background-color: #2f3144;
 }
 
 #battery {
@@ -90,20 +81,9 @@ window#waybar.hidden {
   background-color: #a6e3a1;
 }
 
-@keyframes blink {
-  to {
-    background-color: #f38ba8;
-    color: #11111b;
-  }
-
-  from {
-    background-color: #11111b;
-    color: #f38ba8;
-  }
-}
-
 #custom-power {
   margin-right: 15px;
+  color: #ff6666;
 }
 
 

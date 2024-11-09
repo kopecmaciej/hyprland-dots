@@ -4,16 +4,16 @@
   "height": 30,
   "spacing": 4,
   "reload_style_on_change": true,
-  "modules-center": [
-    "hyprland/workspaces",
+  "modules-left": [
     "hyprland/window"
   ],
-  "modules-left": [],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
   "modules-right": [
     "custom/gpu_mem",
     "custom/gpu_temp",
-    "cpu",
-    "memory",
+    "group/hardware",
     "pulseaudio",
     "network",
     "battery",
@@ -41,15 +41,21 @@
     }
   },
   "hyprland/window": {
-    "max-length": 30,
-    "min-length": 30,
+    "format": "{initialTitle}",
     "icon": true
+  },
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory"
+    ]
   },
   "custom/power": {
     "format": " ",
     "tooltip": false,
-    "on-click": "poweroff",
-    "on-click-right": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown"
+    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+    "on-click-right": "~/.config/hypr/scripts/glassmorphism"
   },
   "custom/gpu_mem": {
     "exec": "echo 50",
@@ -65,15 +71,16 @@
     "interval": 5
   },
   "clock": {
+    "format": " {:%H:%M %a}",
+    "tooltip": "true",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%H:%M}"
+    "format-alt": " {:%d/%m}"
   },
   "cpu": {
-    "format": " {usage}%",
-    "tooltip": false
+    "format": " {usage}%"
   },
   "memory": {
-    "format": "{}% "
+    "format": " {}% "
   },
   "battery": {
     "states": {
@@ -107,16 +114,16 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
       "default": [
-        "",
-        "",
-        ""
+        "",
+        "",
+        ""
       ]
     },
     "on-click-right": "pavucontrol"
