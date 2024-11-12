@@ -94,7 +94,7 @@
     "format": " {usage}%"
   },
   "memory": {
-    "format": " {}% "
+    "format": " {}% "
   },
   "battery": {
     "states": {
@@ -132,9 +132,8 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": ["", "", ""]
+      "default": ["", " ", " "]
     },
-    "scroll-step": 5,
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -145,7 +144,6 @@
     "format": "{format_source}",
     "format-source": " {volume} %",
     "format-source-muted": "",
-    "scroll-step": 5,
     "on-click-right": "pavucontrol",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
