@@ -15,7 +15,7 @@
     "custom/gpu_temp",
     "group/hardware",
     "pulseaudio",
-    "pulseaudio#microphone",
+    "pulseaudio#mic",
     "network",
     "battery",
     "tray",
@@ -94,7 +94,7 @@
     "format": " {usage}%"
   },
   "memory": {
-    "format": " {}% "
+    "format": " {}% "
   },
   "battery": {
     "states": {
@@ -132,22 +132,26 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": ["", "", ""]
+      "default": ["", " ", " "]
     },
-    "scroll-step": 5,
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol"
   },
 
-  "pulseaudio#microphone": {
+  "pulseaudio#mic": {
     "format": "{format_source}",
     "format-source": " {volume} %",
     "format-source-muted": "",
-    "scroll-step": 5,
-    "on-click-right": "pavucontrol"
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   },
 
   "tray": {
-    "icon-size": 21,
+    "icon-size": 16,
     "spacing": 30
   }
 }
