@@ -47,14 +47,46 @@ window#waybar.hidden {
   padding: 3px 8px;
 }
 
-#battery,
-#cpu,
-#memory,
-#custom-gpu_temp,
-#custom-gpu_mem,
-#network,
-#pulseaudio,
-#clock,
+#battery {
+  padding: 0 6px;
+  color: #a6e3a1;
+}
+
+#cpu {
+  padding: 0 6px;
+  color: #89b4fa;
+}
+
+#memory {
+  padding: 0 6px;
+  color: #f5c2e7;
+}
+
+#custom-gpu_temp {
+  padding: 0 6px;
+  color: #fab387;
+}
+
+#custom-gpu_mem {
+  padding: 0 6px;
+  color: #cba6f7;
+}
+
+#network {
+  padding: 0 6px;
+  color: #94e2d5;
+}
+
+#pulseaudio {
+  padding: 0 6px;
+  color: #f9e2af;
+}
+
+#clock {
+  padding: 0 6px;
+  color: #b4befe;
+}
+
 #tray {
   padding: 0 6px;
   color: #d4d4d4;
