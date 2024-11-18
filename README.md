@@ -2,7 +2,10 @@
 
 A minimal yet functional Wayland desktop environment powered by Hyprland
 
-![](https://img.shields.io/badge/WM-Hyprland-blue) ![](https://img.shields.io/badge/Terminal-WezTerm-green) ![](https://img.shields.io/badge/Launcher-Rofi-orange) ![](https://img.shields.io/badge/Bar-Waybar-yellow)
+![](https://img.shields.io/badge/WM-Hyprland-blue)
+![](https://img.shields.io/badge/Terminal-WezTerm-green)
+![](https://img.shields.io/badge/Launcher-Rofi-orange)
+![](https://img.shields.io/badge/Bar-Waybar-yellow)
 
 ![Desktop Screenshot](path_to_your_screenshot.png)
 
@@ -63,6 +66,7 @@ Run the installation script
 ## 🎮 Default Keybindings
 
 ### General
+
 - `SUPER + Return` - Open terminal (WezTerm)
 - `SUPER + Q` - Close active window
 - `SUPER + Space` - Open application launcher (Rofi)
@@ -70,11 +74,13 @@ Run the installation script
 - `SUPER + V` - Toggle floating window
 
 ### Workspace Management
+
 - `SUPER + [1-9]` - Switch to workspace 1-9
 - `SUPER + SHIFT + [1-9]` - Move active window to workspace 1-9
 - `SUPER + TAB` - Toggle between recent workspaces
 
 ### Window Management
+
 - `SUPER + [H,J,K,L]` - Focus window in direction
 - `SUPER + SHIFT + [H,J,K,L]` - Move window in direction
 - `SUPER + Mouse Drag` - Move floating window
@@ -83,19 +89,26 @@ Run the installation script
 ## 🛠️ Customization
 
 ### Changing Wallpaper
+
 Edit `~/.config/hypr/hyprland.conf` and modify the hyprpaper configuration.
 
 ### Modifying the Status Bar
-Edit `~/.config/waybar/config` and `~/.config/waybar/style.css` to customize Waybar.
+
+Edit `~/.config/waybar/config` and `~/.config/waybar/style.css` to customize
+Waybar.
 
 ### Changing Theme
-The configuration uses Catppuccin Mocha theme by default. You can modify theme settings in:
+
+The configuration uses Catppuccin Mocha theme by default. You can modify theme
+settings in:
+
 - WezTerm: `~/.config/wezterm/wezterm.lua`
 - Rofi: `~/.config/rofi/config.rasi`
 
 ## 📝 Dependencies
 
 Core components:
+
 - hyprland
 - waybar
 - rofi
@@ -107,20 +120,7 @@ Core components:
 - dolphin
 
 Additional utilities:
+
 - brightnessctl
 - playerctl
 - pamixer
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## 📜 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Hyprland development team
-- Waybar development team
-- Various configuration inspiration from r/unixporn
