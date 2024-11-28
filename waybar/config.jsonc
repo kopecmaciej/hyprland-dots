@@ -11,6 +11,7 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "custom/gpu_power",
     "custom/gpu_mem",
     "custom/gpu_temp",
     "group/hardware",
@@ -52,14 +53,17 @@
       "memory"
     ]
   },
-
   "custom/power": {
     "format": " ",
     "tooltip": false,
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
     "on-click-right": "~/.config/hypr/scripts/glassmorphism"
   },
-
+  "custom/gpu_power": {
+    "exec": "nvidia-smi --query-gpu=power.draw --format=csv,noheader",
+    "format": "󱄈 {}",
+    "interval": 5
+  },
   "custom/gpu_mem": {
     "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
     "format": " {}",
@@ -132,14 +136,17 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": ["", " ", " "]
+      "default": [
+        "",
+        " ",
+        " "
+      ]
     },
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol"
   },
-
   "pulseaudio#mic": {
     "format": "{format_source}",
     "format-source": " {volume} %",
@@ -149,7 +156,6 @@
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   },
-
   "tray": {
     "icon-size": 16,
     "spacing": 30

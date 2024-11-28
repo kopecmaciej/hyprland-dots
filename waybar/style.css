@@ -62,6 +62,11 @@ window#waybar.hidden {
   color: #f5c2e7;
 }
 
+#custom-gpu_power {
+  padding: 0 6px;
+  color: #fab387;
+}
+
 #custom-gpu_temp {
   padding: 0 6px;
   color: #fab387;
@@ -89,7 +94,14 @@ window#waybar.hidden {
 
 #tray {
   padding: 0 6px;
-  color: #d4d4d4;
+}
+
+#tray menu {
+  background-color: rgba(26, 27, 38, 0.95);
+}
+
+#tray menuitem:hover {
+  background-color: rgba(56, 67, 98, 1);
 }
 
 .modules-right>widget:last-child {
