@@ -52,9 +52,6 @@ if check_nvidia; then
     fi
 fi
 
-# Make script executable
-chmod +x ~/.config/hypr/scripts/install-hypr.sh
-
 # Install essential packages
 echo "Installing essential packages..."
 sudo pacman -S --needed \
@@ -88,28 +85,23 @@ yay -S \
 
 # Ask about additional packages
 echo -e "\nAdditional packages available for installation:"
-echo "1. Development tools (lazygit, yarn, ripgrep)"
-echo "2. Sync tools (rsync, syncthing)"
-echo "3. Shell enhancements (starship)"
-echo "4. Language environemnts (mise)"
-echo "5. Additional fonts (ttf-meslo-nerd-font-powerlevel10k)"
 
+echo "1. Development tools (lazygit, yarn, ripgrep)"
 if ask_yes_no "Would you like to install development tools?"; then
     sudo pacman -S --needed lazygit yarn ripgrep
 fi
 
+echo "2. Sync tools (rsync, syncthing)"
 if ask_yes_no "Would you like to install sync tools?"; then
     sudo pacman -S --needed rsync syncthing
 fi
 
+echo "3. Shell enhancements (starship)"
 if ask_yes_no "Would you like to install shell enhancements?"; then
-    sudo pacman -S --needed starship
+    sudo pacman -S --needed starship yazi
 fi
 
-if ask_yes_no "Would you like to install language env tools?"; then
-    sudo yay -S mise
-fi
-
+echo "4. Additional fonts (ttf-meslo-nerd-font-powerlevel10k)"
 if ask_yes_no "Would you like to install additional fonts?"; then
     yay -S ttf-meslo-nerd-font-powerlevel10k
 fi
@@ -146,8 +138,3 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 ### FZF
 yay -S fzf bat fd
 fisher install PatrickF1/fzf.fish
-
-
-mise use -g node@23
-mise use -g go@1.23
-mise use -g python@3.12
