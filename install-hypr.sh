@@ -110,10 +110,10 @@ fi
 mkdir -p ~/.config/{waybar,rofi,wezterm}
 
 # Copy config files
-cp ./waybar/config ~/.config/waybar/
-cp ./waybar/style.css ~/.config/waybar/
-cp ./rofi/config.rasi ~/.config/rofi/
-cp ./wezterm/wezterm.lua ~/.config/wezterm/
+cp -r ./waybar/config ~/.config/waybar/
+cp -r ./waybar/style.css ~/.config/waybar/
+cp -r ./rofi/config.rasi ~/.config/rofi/
+cp -r ./wezterm/wezterm.lua ~/.config/wezterm/
 
 # Enable SDDM
 sudo systemctl enable sddm
