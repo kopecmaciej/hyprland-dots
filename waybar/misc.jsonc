@@ -71,10 +71,12 @@
   "network": {
     "format-wifi": "{essid} ({signalStrength}%)  ",
     "format-ethernet": "{ipaddr}/{cidr} ",
+    // "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "family": "ipv4"
   },
   "pulseaudio": {
     "format": "{icon} {volume} %",
@@ -151,5 +153,14 @@
     "on-click": "loginctl lock-session",
     "tooltip": true,
     "tooltip-format": "󰷛 Screen Lock"
+  },
+  "custom/pacman": {
+    "format": "󰮯 {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "exit 0",
+    "interval": 120,
+    "on-click": "wezterm start -- sh -c 'sudo pacman -Syu; echo; read -p \"Press enter to close...\"'",
+    "tooltip": true,
+    "tooltip-format": "Available pacman updates: {}"
   }
 }

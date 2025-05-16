@@ -20,6 +20,8 @@
     "custom/separator#blank",
     "tray",
     "custom/separator#blank",
+    "custom/pacman",
+    "custom/separator#blank",
     "clock",
     "custom/separator#blank",
     "hyprland/window"
