@@ -70,7 +70,7 @@
   },
   "network": {
     "format-wifi": "{essid} ({signalStrength}%)  ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-ethernet": "{ifname}/{cidr} ",
     // "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
@@ -118,8 +118,8 @@
     "on-click": "playerctl previous",
     "on-click-right": "playerctl next",
     "scroll-step": 5.0,
-    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
-    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
     "smooth-scrolling-threshold": 1,
     "tooltip": true,
     "tooltip-format": "{status_icon} {dynamic}\nLeft Click: previous\nMid Click: Pause\nRight Click: Next",
@@ -131,15 +131,15 @@
       "mopidy": "",
       "mpv": "󰐹",
       "spotify": "",
-      "vlc": "󰕼",
+      "vlc": "󰕼"
     },
     "status-icons": {
       "paused": "󰐎",
       "playing": "",
-      "stopped": "",
+      "stopped": ""
     },
     // "ignored-players": ["firefox"]
-    "max-length": 30,
+    "max-length": 30
   },
   "custom/power": {
     "format": " ",
@@ -158,9 +158,7 @@
     "format": "󰮯 {}",
     "exec": "checkupdates | wc -l",
     "exec-if": "exit 0",
-    "interval": 120,
+    "interval": 30,
     "on-click": "wezterm start -- sh -c 'sudo pacman -Syu; echo; read -p \"Press enter to close...\"'",
-    "tooltip": true,
-    "tooltip-format": "Available pacman updates: {}"
   }
 }
