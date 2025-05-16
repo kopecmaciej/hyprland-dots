@@ -22,11 +22,11 @@ if monitor_exists "Eizo"; then
     echo "monitor=desc:\$monitor_2,1920x1080@60,1920x0,1" >> "$monitor_conf_file"
 
 elif monitor_exists "Iiyama"; then
-    echo "\$monitor_1=Iiyama North America PL3466WQ 1174011100738" >> "$monitor_conf_file"
-    echo "\$monitor_2=AOC 24G2W1G4 0x0000AC49" >> "$monitor_conf_file"
-    echo "workspace=1,monitor:desc:\$monitor_1" >> "$monitor_conf_file"
-    echo "monitor=desc:\$monitor_1,3440x1440@100,0x0,1" >> "$monitor_conf_file"
-    echo "monitor=desc:\$monitor_2,1920x1080@144,3440x0,1" >> "$monitor_conf_file"
+    echo "\$monitor_1=DP-1" >> "$monitor_conf_file"
+    echo "\$monitor_2=HDMI-A-1" >> "$monitor_conf_file"
+    echo "workspace=1,monitor:\$monitor_1" >> "$monitor_conf_file"
+    echo "monitor=\$monitor_1,3440x1440@100,0x0,1" >> "$monitor_conf_file"
+    echo "monitor=\$monitor_2,1920x1080@144,3440x0,1" >> "$monitor_conf_file"
 
 elif monitor_exists "TCL SMART TV"; then
     echo "workspace=eDP-1,1" >> "$monitor_conf_file"
