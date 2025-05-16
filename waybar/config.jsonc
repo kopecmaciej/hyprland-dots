@@ -1,26 +1,45 @@
+// Code from:
+// https://github.com/JaKooLit/Hyprland-Dots (GPL-3.0)
+//
+// Original author: JaKooLit (https://github.com/JaKooLit)
+// License: GNU General Public License v3.0
 {
+  "include": [
+    "$HOME/.config/waybar/gpu.jsonc",
+    "$HOME/.config/waybar/hardware.jsonc",
+    "$HOME/.config/waybar/workspaces.jsonc",
+    "$HOME/.config/waybar/utils.jsonc",
+    "$HOME/.config/waybar/misc.jsonc"
+  ],
   "layer": "top",
   "position": "top",
   "height": 30,
   "spacing": 4,
   "reload_style_on_change": true,
   "modules-left": [
+    "custom/separator#blank",
+    "tray",
+    "custom/separator#blank",
+    "clock",
+    "custom/separator#blank",
     "hyprland/window"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/workspaces#rw",
+    "custom/separator#dot-line",
+    "group/notify"
   ],
   "modules-right": [
-    "custom/gpu_power",
-    "custom/gpu_mem",
-    "custom/gpu_temp",
+    "group/gpu",
+    "custom/separator#blank",
     "group/hardware",
-    "pulseaudio",
-    "pulseaudio#mic",
+    "custom/separator#line",
+    "group/audio",
     "network",
     "battery",
     "tray",
-    "clock",
+    "custom/separator#dot-line",
+    "mpris",
     "custom/power"
   ],
   "hyprland/workspaces": {
@@ -45,116 +64,6 @@
   "hyprland/window": {
     "format": "{initialTitle}",
     "icon": true
-  },
-  "group/hardware": {
-    "orientation": "horizontal",
-    "modules": [
-      "cpu",
-      "memory"
-    ]
-  },
-  "custom/power": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "on-click-right": "~/.config/hypr/scripts/glassmorphism"
-  },
-  "custom/gpu_power": {
-    "exec": "nvidia-smi --query-gpu=power.draw --format=csv,noheader",
-    "format": "󱄈 {}",
-    "interval": 5
-  },
-  "custom/gpu_mem": {
-    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
-    "format": " {}",
-    "interval": 5
-  },
-  "custom/gpu_temp": {
-    "exec": "nvidia-smi --query-gpu=memory.used --format=csv,noheader",
-    "format": "󰤚 {}",
-    "critical-threshold": 80,
-    "interval": 5
-  },
-  "clock": {
-    "format": " {:%H:%M}",
-    "format-alt": " {:%Y-%m-%d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<span color='#ffb86c'><b>{}</b></span>",
-        "days": "<span color='#f8f8f2'>{}</span>",
-        "weeks": "<span color='#ff5555'><b>W{}</b></span>",
-        "weekdays": "<span color='#ff79c6'><b>{}</b></span>",
-        "today": "<span color='#ff6e6e'><b>{}</b></span>"
-      }
-    }
-  },
-  "cpu": {
-    "format": " {usage}%"
-  },
-  "memory": {
-    "format": "{used:0.1f}G"
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "network": {
-    "format-wifi": "{essid} ({signalStrength}%)  ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume} %",
-    "format-bluetooth": " {icon} {volume} %",
-    "format-muted": " mute",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": [
-        "",
-        " ",
-        " "
-      ]
-    },
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol"
-  },
-  "pulseaudio#mic": {
-    "format": "{format_source}",
-    "format-source": " {volume} %",
-    "format-source-muted": "",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   },
   "tray": {
     "icon-size": 16,
