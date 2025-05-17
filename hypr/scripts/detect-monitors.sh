@@ -15,8 +15,8 @@ monitor_exists() {
 
 if monitor_exists "Eizo"; then
     echo "monitor=eDP-1, disable" >> "$monitor_conf_file"
-    echo "\$monitor_1=Eizo Nanao Corporation EV2450 91296017"
-    echo "\$monitor_2=Eizo Nanao Corporation EV2450 46842037"
+    echo "\$monitor_1=Eizo Nanao Corporation EV2450 91296017" >> "$monitor_conf_file"
+    echo "\$monitor_2=Eizo Nanao Corporation EV2450 46842037" >> "$monitor_conf_file"
     echo "workspace=1,monitor:desc:\$monitor_1" >> "$monitor_conf_file"
     echo "monitor=desc:\$monitor_1,1920x1080@60,0x0,1" >> "$monitor_conf_file"
     echo "monitor=desc:\$monitor_2,1920x1080@60,1920x0,1" >> "$monitor_conf_file"
