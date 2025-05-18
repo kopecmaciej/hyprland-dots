@@ -1,0 +1,164 @@
+// Code from:
+// https://github.com/JaKooLit/Hyprland-Dots (GPL-3.0)
+//
+// Original author: JaKooLit (https://github.com/JaKooLit)
+// License: GNU General Public License v3.0
+{
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "pulseaudio",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#mic"
+    ]
+  },
+  "clock": {
+    "interval": 1,
+    "format": " {:%H:%M}",
+    "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "battery": {
+    "align": 0,
+    "rotate": 0,
+    "full-at": 100,
+    "design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": "󱘖 {capacity}%",
+    "format-alt-click": "click",
+    "format-full": "{icon} Full",
+    "format-alt": "{icon} {time}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-time": "{H}h {M}min",
+    "tooltip": true,
+    "tooltip-format": "{timeTo} {power}w",
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ifname}/{cidr} ",
+    // "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "family": "ipv4"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume} %",
+    "format-bluetooth": " {icon} {volume} %",
+    "format-muted": " mute",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        "",
+        " ",
+        " "
+      ]
+    },
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": " {volume} %",
+    "format-source-muted": "",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  },
+  "mpris": {
+    "interval": 10,
+    "format": "{player_icon} ",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "scroll-step": 5.0,
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "smooth-scrolling-threshold": 1,
+    "tooltip": true,
+    "tooltip-format": "{status_icon} {dynamic}\nLeft Click: previous\nMid Click: Pause\nRight Click: Next",
+    "player-icons": {
+      "chromium": "",
+      "default": "",
+      "firefox": "",
+      "kdeconnect": "",
+      "mopidy": "",
+      "mpv": "󰐹",
+      "spotify": "",
+      "vlc": "󰕼"
+    },
+    "status-icons": {
+      "paused": "󰐎",
+      "playing": "",
+      "stopped": ""
+    },
+    // "ignored-players": ["firefox"]
+    "max-length": 30
+  },
+  "custom/power": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+    "on-click-right": "loginctl lock-session",
+    "tooltip-format": "Logout Menu\n 󰷛 Screen Lock"
+  },
+  "custom/lock": {
+    "format": "󰌾",
+    "on-click": "loginctl lock-session",
+    "tooltip": true,
+    "tooltip-format": "󰷛 Screen Lock"
+  },
+  "custom/pacman": {
+    "format": "󰮯 {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "exit 0",
+    "interval": 30,
+    "on-click": "wezterm start -- sh -c 'sudo pacman -Syu; echo; read -p \"Press enter to close...\"'",
+  }
+}

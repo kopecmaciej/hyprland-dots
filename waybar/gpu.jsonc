@@ -1,0 +1,36 @@
+// Code from:
+// https://github.com/JaKooLit/Hyprland-Dots (GPL-3.0)
+//
+// Original author: JaKooLit (https://github.com/JaKooLit)
+// License: GNU General Public License v3.0
+{
+  "group/gpu": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "custom/gpu_mem",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/gpu_power",
+      "custom/gpu_temp",
+      "custom/gpu_mem"
+    ]
+  },
+  "custom/gpu_power": {
+    "exec": "nvidia-smi --query-gpu=power.draw --format=csv,noheader",
+    "format": "󱄈 {}",
+    "interval": 5
+  },
+  "custom/gpu_temp": {
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
+    "format": " {}",
+    "interval": 5
+  },
+  "custom/gpu_mem": {
+    "exec": "nvidia-smi --query-gpu=memory.used --format=csv,noheader",
+    "format": "󰤚 {}",
+    "critical-threshold": 80,
+    "interval": 5
+  }
+}
