@@ -143,10 +143,10 @@
   },
   "custom/power": {
     "format": " ",
-    "tooltip": false,
+    "tooltip": true,
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "on-click-right": "loginctl lock-session",
-    "tooltip-format": "Logout Menu\n 󰷛 Screen Lock"
+    "on-click-right": "hyprlock",
+    "tooltip-format": "L-click: Logout Menu\nR-click: 󰷛 Screen Lock"
   },
   "custom/lock": {
     "format": "󰌾",
