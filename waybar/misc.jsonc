@@ -153,15 +153,14 @@
       "mopidy": "",
       "mpv": "󰐹",
       "spotify": "",
-      "vlc": "󰕼",
+      "vlc": "󰕼"
     },
     "status-icons": {
       "paused": "󰐎",
       "playing": "",
-      "stopped": "",
+      "stopped": ""
     },
-    // "ignored-players": ["firefox"]
-    "max-length": 30,
+    "max-length": 30
   },
   "backlight": {
     "interval": 2,
@@ -186,13 +185,7 @@
     "format": " ",
     "tooltip": false,
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "on-click-right": "loginctl lock-session",
+    "on-click-right": "hyprlock",
     "tooltip-format": "Logout Menu\n 󰷛 Screen Lock"
-  },
-  "custom/lock": {
-    "format": "󰌾",
-    "on-click": "loginctl lock-session",
-    "tooltip": true,
-    "tooltip-format": "󰷛 Screen Lock"
-  },
+  }
 }
