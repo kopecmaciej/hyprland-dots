@@ -81,6 +81,14 @@
     "tooltip-format": "{timeTo} {power}w"
   },
   "network": {
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ifname}/{cidr} ",
+    // "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "family": "ipv4"
     "format": "{ifname}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰌘",
@@ -153,12 +161,12 @@
       "mopidy": "",
       "mpv": "󰐹",
       "spotify": "",
-      "vlc": "󰕼"
+      "vlc": "󰕼",
     },
     "status-icons": {
       "paused": "󰐎",
       "playing": "",
-      "stopped": ""
+      "stopped": "",
     },
     "max-length": 30
   },
