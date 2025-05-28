@@ -81,10 +81,13 @@
     "tooltip-format": "{timeTo} {power}w"
   },
   "network": {
+    "family": "ipv4",
     "format": "{ifname}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰌘",
-    "format-disconnected": "󰌙",
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ifname}/{cidr} 󰌘",
+    // "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-disconnected": "Disconnected 󰌙",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
     "format-linked": "󰈁 {ifname} (No IP)",
     "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
