@@ -10,7 +10,7 @@ config.prefer_egl = false
 config.allow_square_glyphs_to_overflow_width = "Always"
 
 config.font = wezterm.font("JetBrainsMonoNerdFont", { weight = "Regular", italic = false })
-config.font_size = 14
+config.font_size = 13
 
 wezterm.on("update-right-status", function(window, pane)
 	local leader = ""
