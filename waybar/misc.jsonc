@@ -81,18 +81,13 @@
     "tooltip-format": "{timeTo} {power}w"
   },
   "network": {
-    "format-wifi": "{essid} ({signalStrength}%)  ",
-    "format-ethernet": "{ifname}/{cidr} ",
-    // "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "family": "ipv4"
+    "family": "ipv4",
     "format": "{ifname}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰌘",
-    "format-disconnected": "󰌙",
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ifname}/{cidr} 󰌘",
+    // "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-disconnected": "Disconnected 󰌙",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
     "format-linked": "󰈁 {ifname} (No IP)",
     "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
@@ -161,12 +156,12 @@
       "mopidy": "",
       "mpv": "󰐹",
       "spotify": "",
-      "vlc": "󰕼",
+      "vlc": "󰕼"
     },
     "status-icons": {
       "paused": "󰐎",
       "playing": "",
-      "stopped": "",
+      "stopped": ""
     },
     "max-length": 30
   },
