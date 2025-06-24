@@ -189,5 +189,17 @@
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
     "on-click-right": "hyprlock",
     "tooltip-format": "Logout Menu\n 󰷛 Screen Lock"
+  },
+  "custom/pacman": {
+    "format": "󰏖 {}",
+    "interval": 600,
+    "exec": "checkupdates 2>/dev/null | wc -l || echo 0",
+    "exec-if": "exit 0",
+    "on-click": "wezterm -e 'sudo pacman -Syu'",
+    "on-click-right": "wezterm -e 'checkupdates'",
+    "signal": 8,
+    "tooltip": true,
+    "tooltip-format": "{} updates available\nLeft click: Update system\nRight click: Show updates",
+    "exec-on-event": false
   }
 }
