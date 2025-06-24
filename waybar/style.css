@@ -142,9 +142,8 @@ tooltip label {
 #custom-swaync,
 #custom-tty,
 #custom-pacman,
+#custom-server,
 #custom-power {
-	padding-top: 4px;
-	padding-bottom: 4px;
 	padding-right: 6px;
 	padding-left: 6px;
 }
@@ -334,4 +333,27 @@ label:focus {
 #pulseaudio-slider highlight {
 	min-height: 10px;
 	border-radius: 5px;
+}
+
+#custom-server.good {
+	color: #a6e3a1;
+}
+
+#custom-server.critical {
+	color: #f38ba8;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.7;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }

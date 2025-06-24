@@ -201,5 +201,18 @@
     "tooltip": true,
     "tooltip-format": "{} updates available\nLeft click: Update system\nRight click: Show updates",
     "exec-on-event": false
+  },
+  "custom/server": {
+    "format": "{}",
+    "interval": 30,
+    "exec": "~/.config/waybar/scripts/server.sh",
+    "return-type": "json",
+    "states": {
+      "good": 0,
+      "critical": 1
+    },
+    "on-click": "wezterm -e 'kubectl get pods'",
+    "on-click-right": "wezterm -e 'kubectl describe pods'",
+    "tooltip": true
   }
 }
