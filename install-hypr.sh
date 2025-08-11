@@ -83,7 +83,7 @@ fi
 
 echo -e "${YELLOW}Installing essential packages...${RESET}"
 packages=(
-    wget hyprland waybar rofi-wayland wezterm dolphin xdg-desktop-portal-hyprland
+    wget hyprland waybar rofi-wayland wezterm thunar tumbler xdg-desktop-portal-hyprland
     sddm swaync swww pipewire pipewire-pulse pipewire-audio pipewire-alsa wireplumber
     pavucontrol unzip zip ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji wl-clipboard
     docker-buildx

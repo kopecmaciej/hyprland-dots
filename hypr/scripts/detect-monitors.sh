@@ -24,6 +24,7 @@ if monitor_exists "Eizo"; then
 elif monitor_exists "Iiyama"; then
     echo "\$monitor_1=DP-1" >> "$monitor_conf_file"
     echo "\$monitor_2=HDMI-A-1" >> "$monitor_conf_file"
+    echo "monitor=eDP-1, disable" >> "$monitor_conf_file"
     echo "workspace=1,monitor:\$monitor_1" >> "$monitor_conf_file"
     echo "monitor=\$monitor_1,3440x1440@100,0x0,1" >> "$monitor_conf_file"
     echo "monitor=\$monitor_2,1920x1080@144,3440x0,1" >> "$monitor_conf_file"
